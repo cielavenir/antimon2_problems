@@ -1,0 +1,1 @@
+b=0;c=1;gets.to_i.times{b,c=c,34*c-b+2};p b
