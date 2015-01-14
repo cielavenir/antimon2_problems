@@ -44,3 +44,17 @@ p (1..1/0.0).find{|m|[m,38-m,38+m].map{|e|e*e}.all?{|e|
 #Q3
 p (1..1/0.0).lazy.select{|d|(1..d).reduce(:*).to_s.index('1111')}.take(2).to_a
 # => [38, 169]
+
+#[2015]
+p [*2..6].permutation.count{|_a|
+    t=2
+    a=[1]+_a
+    c=0
+    (a.size+t-1).times.all?{|i|
+        c=a[i%a.size]>a[(i+1)%a.size] ? c+1 : 0
+        c<t
+    }
+}
+# => 39
+#追加問題：上記はA080635(5)に該当する。よってn=39のときはA080635(38)
+#すなわちPARI/GPで、n=38; if( n<1, n==0, A = O(x); for( k=1, n, A = intformal( 1 + A + A^2)); n! * polcoeff( A, n)) # 317029010310200031444965610148232355333309
